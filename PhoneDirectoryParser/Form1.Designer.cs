@@ -25,53 +25,144 @@
         /// содержимое этого метода с помощью редактора кода.
         /// </summary>
         private void InitializeComponent() {
-            this.buttonOpenPhoneDirectory = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.buttonExportToExcel = new System.Windows.Forms.Button();
+            this.buttonOpenPhoneDirectory = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CalledNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAndTimeToStartAConversation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DurationOfMinutes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonOpenPhoneDirectory
-            // 
-            this.buttonOpenPhoneDirectory.Location = new System.Drawing.Point(12, 12);
-            this.buttonOpenPhoneDirectory.Name = "buttonOpenPhoneDirectory";
-            this.buttonOpenPhoneDirectory.Size = new System.Drawing.Size(298, 23);
-            this.buttonOpenPhoneDirectory.TabIndex = 0;
-            this.buttonOpenPhoneDirectory.Text = "Открыть телефонный справочник";
-            this.buttonOpenPhoneDirectory.UseVisualStyleBackColor = true;
-            this.buttonOpenPhoneDirectory.Click += new System.EventHandler(this.ButtonOpenPhoneDirectory_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.buttonOpenPhoneDirectory);
+            this.panel1.Controls.Add(this.buttonExportToExcel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 604);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1326, 22);
+            this.panel1.TabIndex = 2;
+            // 
             // buttonExportToExcel
             // 
-            this.buttonExportToExcel.Location = new System.Drawing.Point(51, 92);
+            this.buttonExportToExcel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonExportToExcel.Location = new System.Drawing.Point(1109, 0);
             this.buttonExportToExcel.Name = "buttonExportToExcel";
-            this.buttonExportToExcel.Size = new System.Drawing.Size(203, 23);
-            this.buttonExportToExcel.TabIndex = 1;
+            this.buttonExportToExcel.Size = new System.Drawing.Size(217, 22);
+            this.buttonExportToExcel.TabIndex = 2;
             this.buttonExportToExcel.Text = "Экспорт в Excel";
             this.buttonExportToExcel.UseVisualStyleBackColor = true;
-            this.buttonExportToExcel.Click += new System.EventHandler(this.ButtonExportToExcel_Click);
+            // 
+            // buttonOpenPhoneDirectory
+            // 
+            this.buttonOpenPhoneDirectory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonOpenPhoneDirectory.Location = new System.Drawing.Point(0, 0);
+            this.buttonOpenPhoneDirectory.Name = "buttonOpenPhoneDirectory";
+            this.buttonOpenPhoneDirectory.Size = new System.Drawing.Size(221, 22);
+            this.buttonOpenPhoneDirectory.TabIndex = 3;
+            this.buttonOpenPhoneDirectory.Text = "Открыть телефонный справочник";
+            this.buttonOpenPhoneDirectory.UseVisualStyleBackColor = true;
+            this.buttonOpenPhoneDirectory.Click += new System.EventHandler(this.ButtonOpenPhoneDirectory_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PhoneNumber,
+            this.NameOfService,
+            this.Direction,
+            this.CalledNumber,
+            this.DateAndTimeToStartAConversation,
+            this.DurationOfMinutes,
+            this.Cost});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1326, 604);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // PhoneNumber
+            // 
+            this.PhoneNumber.HeaderText = "Телефонный номер";
+            this.PhoneNumber.Name = "PhoneNumber";
+            this.PhoneNumber.Width = 121;
+            // 
+            // NameOfService
+            // 
+            this.NameOfService.HeaderText = "Наименование услуги";
+            this.NameOfService.Name = "NameOfService";
+            this.NameOfService.Width = 132;
+            // 
+            // Direction
+            // 
+            this.Direction.HeaderText = "Направление";
+            this.Direction.Name = "Direction";
+            // 
+            // CalledNumber
+            // 
+            this.CalledNumber.HeaderText = "Номер вызываемого/вызывающего абонента";
+            this.CalledNumber.Name = "CalledNumber";
+            this.CalledNumber.Width = 202;
+            // 
+            // DateAndTimeToStartAConversation
+            // 
+            this.DateAndTimeToStartAConversation.HeaderText = "Дата,Время начала";
+            this.DateAndTimeToStartAConversation.Name = "DateAndTimeToStartAConversation";
+            this.DateAndTimeToStartAConversation.Width = 121;
+            // 
+            // DurationOfMinutes
+            // 
+            this.DurationOfMinutes.HeaderText = "Прод.(мин)/Кол.услуг";
+            this.DurationOfMinutes.Name = "DurationOfMinutes";
+            this.DurationOfMinutes.Width = 141;
+            // 
+            // Cost
+            // 
+            this.Cost.HeaderText = "Стоимость(руб.)";
+            this.Cost.Name = "Cost";
+            this.Cost.Width = 113;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 138);
-            this.Controls.Add(this.buttonExportToExcel);
-            this.Controls.Add(this.buttonOpenPhoneDirectory);
+            this.ClientSize = new System.Drawing.Size(1326, 626);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonOpenPhoneDirectory;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button buttonOpenPhoneDirectory;
         private System.Windows.Forms.Button buttonExportToExcel;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameOfService;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CalledNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateAndTimeToStartAConversation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DurationOfMinutes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
     }
 }
 
