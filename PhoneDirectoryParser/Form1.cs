@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
 
 namespace PhoneDirectoryParser
 {
@@ -26,58 +23,78 @@ namespace PhoneDirectoryParser
             }
 
         }
-        private void DataGridAdd(List<PhoneDirectory> phoneDirectories) {
-            int length = phoneDirectories.Count;
-            if(length == 0) {
+        private void DataGridAdd(List<Call> callList) {
+            var length = callList.Count;
+
+            if (length == 0) {
                 return;
             }
-            int indexFirst = 0;
-            int indexEnd = 0;
-            long phoneNumber = phoneDirectories[0].PhoneNumber;
-
-            dataGridView1.Rows.Add(phoneNumber, phoneDirectories[0].NameOfService, phoneDirectories[0].Direction, phoneDirectories[0].CalledNumber,
-                                   phoneDirectories[0].DateAndTimeToStartAConversation, phoneDirectories[0].DurationOfMinutes, phoneDirectories[0].Cost);
+            var i = 0;
+            var phoneNumber = callList[i].PhoneNumber;
 
 
-            for(var i = 1; i < length; i++) {
-                if(phoneNumber == phoneDirectories[i].PhoneNumber) {
-                    dataGridView1.Rows.Add(null, phoneDirectories[i].NameOfService, phoneDirectories[i].Direction, phoneDirectories[i].CalledNumber,
-                   phoneDirectories[i].DateAndTimeToStartAConversation, phoneDirectories[i].DurationOfMinutes, phoneDirectories[i].Cost);
+            dataGridView1.Rows.Add(phoneNumber, callList[i].NameOfService, callList[i].Direction, callList[i].CalledNumber,
+                                   callList[i].DateAndTimeToStartAConversation, callList[i].DurationOfMinutes, callList[i].Cost);
+
+            var indexFirst = 0;
+            int indexEnd;
+            while (++i < length) {
+                long? phoneNumberOrNull;
+                if (phoneNumber == callList[i].PhoneNumber) {
+                    phoneNumberOrNull = null;
                 } else {
-                    phoneNumber = phoneDirectories[i].PhoneNumber;
-
+                    phoneNumber = callList[i].PhoneNumber;
+                    phoneNumberOrNull = phoneNumber;
                     indexEnd = i - 1;
-                    DataGridAddTotal(phoneDirectories, indexFirst, indexEnd);
+                    DataGridAddTotal(callList, indexFirst, indexEnd);
                     indexFirst = i;
-
-                    dataGridView1.Rows.Add(phoneDirectories[i].PhoneNumber, phoneDirectories[i].NameOfService, phoneDirectories[i].Direction, phoneDirectories[i].CalledNumber,
-                    phoneDirectories[i].DateAndTimeToStartAConversation, phoneDirectories[i].DurationOfMinutes, phoneDirectories[i].Cost);
                 }
+                dataGridView1.Rows.Add(phoneNumberOrNull, callList[i].NameOfService, callList[i].Direction, callList[i].CalledNumber,
+                                   callList[i].DateAndTimeToStartAConversation, callList[i].DurationOfMinutes, callList[i].Cost);
             }
-            indexEnd = phoneDirectories.Count - 1;
+            indexEnd = callList.Count - 1;
 
-            DataGridAddTotal(phoneDirectories, indexFirst, indexEnd);
+            DataGridAddTotal(callList, indexFirst, indexEnd);
 
 
-            DataGridAddAllTotal(phoneDirectories);
+            DataGridAddAllTotal(callList);
         }
-        private void DataGridAddTotal(List<PhoneDirectory> phoneDirectories, int indexFirst, int indexEnd) {
+        private void DataGridAddTotal(List<Call> callList, int indexFirst, int indexEnd) {
             int nMinutes = 0;
             decimal nCost = 0;
-            for(int i = indexFirst; i <= indexEnd; i++) {
-                nMinutes += phoneDirectories[i].DurationOfMinutes;
-                nCost += phoneDirectories[i].Cost;
+            for (int i = indexFirst; i <= indexEnd; i++) {
+                nMinutes += callList[i].DurationOfMinutes;
+                nCost += callList[i].Cost;
             }
-            dataGridView1.Rows.Add($"Итого по: {phoneDirectories[indexFirst].PhoneNumber}", null, null,
-                     $"Количество разговоров: {indexEnd - indexFirst + 1}",null, $"Количество минут: {nMinutes}", $"На сумму: {nCost}");
+            dataGridView1.Rows.Add($"Итого по: {callList[indexFirst].PhoneNumber}", null, null, $"Количество разговоров: {indexEnd - indexFirst + 1}", null, $"Количество минут: {nMinutes}", $"На сумму: {nCost}");
         }
-        private void DataGridAddAllTotal(List<PhoneDirectory> phoneDirectories) {
-            var nMinutes = phoneDirectories.Sum(x => x.DurationOfMinutes);
-            var nCost = phoneDirectories.Sum(x => x.Cost);
-            dataGridView1.Rows.Add("Итого:", null, null, $"Количество разговоров: {phoneDirectories.Count}", null, $"Количество минут: {nMinutes}", $"На сумму: {nCost}");
+        private void DataGridAddAllTotal(List<Call> callList) {
+            var nMinutes = callList.Sum(x => x.DurationOfMinutes);
+            var nCost = callList.Sum(x => x.Cost);
+            dataGridView1.Rows.Add("Итого:", null, null, $"Количество разговоров: {callList.Count}", null, $"Количество минут: {nMinutes}", $"На сумму: {nCost}");
         }
-        private void ButtonExportToExcel_Click(object sender, EventArgs e) {
- 
+        private void CopyAlltoClipboard() {
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.SelectAll();
+            DataObject dataObj = dataGridView1.GetClipboardContent();
+            if (dataObj != null)
+                Clipboard.SetDataObject(dataObj);
+        }
+
+        private void ButtonToExcel_Click(object sender, EventArgs e) {
+            CopyAlltoClipboard();
+            Excel.Application xlexcel;
+            Workbook xlWorkBook;
+            Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+            xlexcel = new Excel.Application {
+                Visible = true
+            };
+            xlWorkBook = xlexcel.Workbooks.Add(misValue);
+            xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            var CR = (Range)xlWorkSheet.Cells[1, 1];
+            CR.Select();
+            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
         }
     }
 }

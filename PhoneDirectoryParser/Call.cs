@@ -1,23 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PhoneDirectoryParser
 {
-    public class PhoneDirectory
+    public class Call
     {
-        public PhoneDirectory(string phoneNumber, string nameOfService, string direction, string calledNumber, string dateAndTimeToStartAConversation, string durationOfMinutes, string cost) {
-            PhoneNumber = long.Parse(phoneNumber);
-            NameOfService = nameOfService;
-            Direction = direction;
-            CalledNumber = long.Parse(calledNumber);
-            DateAndTimeToStartAConversation = DateTime.Parse(dateAndTimeToStartAConversation);
-            DurationOfMinutes = int.Parse(durationOfMinutes);
-            Cost = decimal.Parse(cost);
-        }
-        public PhoneDirectory(params string[] callLine) {
+        
+        public Call(params string[] callLine) {
             PhoneNumber = long.Parse(callLine[0]);
             NameOfService = callLine[1];
             Direction = callLine[2];
@@ -40,5 +28,6 @@ namespace PhoneDirectoryParser
         public int DurationOfMinutes { get; set; }
 
         public decimal Cost { get; set; }
+
     }
 }
