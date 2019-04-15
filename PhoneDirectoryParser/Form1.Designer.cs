@@ -78,7 +78,7 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PhoneNumber,
@@ -98,13 +98,11 @@
             // 
             this.PhoneNumber.HeaderText = "Телефонный номер";
             this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.Width = 121;
             // 
             // NameOfService
             // 
             this.NameOfService.HeaderText = "Наименование услуги";
             this.NameOfService.Name = "NameOfService";
-            this.NameOfService.Width = 132;
             // 
             // Direction
             // 
@@ -115,25 +113,21 @@
             // 
             this.CalledNumber.HeaderText = "Номер вызываемого/вызывающего абонента";
             this.CalledNumber.Name = "CalledNumber";
-            this.CalledNumber.Width = 202;
             // 
             // DateAndTimeToStartAConversation
             // 
             this.DateAndTimeToStartAConversation.HeaderText = "Дата,Время начала";
             this.DateAndTimeToStartAConversation.Name = "DateAndTimeToStartAConversation";
-            this.DateAndTimeToStartAConversation.Width = 121;
             // 
             // DurationOfMinutes
             // 
             this.DurationOfMinutes.HeaderText = "Прод.(мин)/Кол.услуг";
             this.DurationOfMinutes.Name = "DurationOfMinutes";
-            this.DurationOfMinutes.Width = 141;
             // 
             // Cost
             // 
             this.Cost.HeaderText = "Стоимость(руб.)";
             this.Cost.Name = "Cost";
-            this.Cost.Width = 113;
             // 
             // Form1
             // 

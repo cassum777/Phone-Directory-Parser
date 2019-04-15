@@ -22,7 +22,7 @@ namespace PhoneDirectoryParser
                 while (!sr.EndOfStream) {
                     callList.Add(new PhoneDirectory(sr.ReadLine().Split('|')));
                 }
-                return callList;
+                return callList.OrderBy(x => x.PhoneNumber).ToList();
             };
         }
         public void Save() {

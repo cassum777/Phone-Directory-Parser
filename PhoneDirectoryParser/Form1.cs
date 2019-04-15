@@ -55,17 +55,21 @@ namespace PhoneDirectoryParser
                 }
             }
             indexEnd = phoneDirectories.Count - 1;
+
+            DataGridAddTotal(phoneDirectories, indexFirst, indexEnd);
+
+
             DataGridAddAllTotal(phoneDirectories);
         }
         private void DataGridAddTotal(List<PhoneDirectory> phoneDirectories, int indexFirst, int indexEnd) {
             int nMinutes = 0;
             decimal nCost = 0;
-            for(int i = indexFirst; i < indexEnd; i++) {
+            for(int i = indexFirst; i <= indexEnd; i++) {
                 nMinutes += phoneDirectories[i].DurationOfMinutes;
                 nCost += phoneDirectories[i].Cost;
             }
             dataGridView1.Rows.Add($"Итого по: {phoneDirectories[indexFirst].PhoneNumber}", null, null,
-                     $"Количество разговоров: {indexEnd - indexFirst}",null, $"Количество минут: {nMinutes}", $"На сумму: {nCost}");
+                     $"Количество разговоров: {indexEnd - indexFirst + 1}",null, $"Количество минут: {nMinutes}", $"На сумму: {nCost}");
         }
         private void DataGridAddAllTotal(List<PhoneDirectory> phoneDirectories) {
             var nMinutes = phoneDirectories.Sum(x => x.DurationOfMinutes);
