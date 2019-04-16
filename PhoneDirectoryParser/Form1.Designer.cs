@@ -39,6 +39,7 @@
             this.DateAndTimeToStartAConversation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DurationOfMinutes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonProgramInfo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -50,6 +51,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.buttonProgramInfo);
             this.panel1.Controls.Add(this.buttonToExcel);
             this.panel1.Controls.Add(this.buttonOpenPhoneDirectory);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -74,11 +76,11 @@
             // buttonOpenPhoneDirectory
             // 
             this.buttonOpenPhoneDirectory.BackColor = System.Drawing.Color.White;
-            this.buttonOpenPhoneDirectory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonOpenPhoneDirectory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonOpenPhoneDirectory.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonOpenPhoneDirectory.Location = new System.Drawing.Point(0, 0);
             this.buttonOpenPhoneDirectory.Name = "buttonOpenPhoneDirectory";
-            this.buttonOpenPhoneDirectory.Size = new System.Drawing.Size(221, 22);
+            this.buttonOpenPhoneDirectory.Size = new System.Drawing.Size(836, 22);
             this.buttonOpenPhoneDirectory.TabIndex = 3;
             this.buttonOpenPhoneDirectory.Text = "Открыть телефонный справочник";
             this.buttonOpenPhoneDirectory.UseVisualStyleBackColor = false;
@@ -164,6 +166,19 @@
             this.Cost.MinimumWidth = 55;
             this.Cost.Name = "Cost";
             // 
+            // buttonProgramInfo
+            // 
+            this.buttonProgramInfo.BackColor = System.Drawing.Color.White;
+            this.buttonProgramInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonProgramInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonProgramInfo.Location = new System.Drawing.Point(0, 0);
+            this.buttonProgramInfo.Name = "buttonProgramInfo";
+            this.buttonProgramInfo.Size = new System.Drawing.Size(90, 22);
+            this.buttonProgramInfo.TabIndex = 5;
+            this.buttonProgramInfo.Text = "О программе";
+            this.buttonProgramInfo.UseVisualStyleBackColor = false;
+            this.buttonProgramInfo.Click += new System.EventHandler(this.ButtonProgramInfo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +207,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DateAndTimeToStartAConversation;
         private System.Windows.Forms.DataGridViewTextBoxColumn DurationOfMinutes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
+        private System.Windows.Forms.Button buttonProgramInfo;
     }
 }
 

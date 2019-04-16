@@ -7,7 +7,7 @@ namespace PhoneDirectoryParser
         
         public Call(params string[] callLine) {
             PhoneNumber = long.Parse(callLine[0]);
-            NameOfService = callLine[1];
+            NameOfService = callLine[1].Replace("Исходящее", "Исх.").Replace("соединение", "соед.");
             Direction = callLine[2];
             CalledNumber = long.Parse(callLine[3]);
             DateAndTimeToStartAConversation = DateTime.Parse(callLine[4]);

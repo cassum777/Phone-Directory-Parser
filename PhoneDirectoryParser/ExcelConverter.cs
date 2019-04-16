@@ -48,7 +48,7 @@ namespace PhoneDirectoryParser
             int indexFirstPhone = 1;
             int indexEndPhone = 1;
 
-            for (var i = 2; i < countGrid; i++) {
+            for (var i = 2; i <= countGrid; i++) {
                 if (xlWorkSheet.Cells[i, 5].Value2 == null) {
                     xlWorkSheet.Range[xlWorkSheet.Cells[i, 2], xlWorkSheet.Cells[i, 7]].Merge();
                 }

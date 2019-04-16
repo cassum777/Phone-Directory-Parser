@@ -94,5 +94,8 @@ namespace PhoneDirectoryParser
             documentExcel.CreateDocument();
         }
 
+        private void ButtonProgramInfo_Click(object sender, EventArgs e) {
+            new FProgramInfo().Show();
+        }
     }
 }
