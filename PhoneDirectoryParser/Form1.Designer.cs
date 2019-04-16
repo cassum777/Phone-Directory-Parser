@@ -29,9 +29,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonToExcel = new System.Windows.Forms.Button();
             this.buttonOpenPhoneDirectory = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonToExcel = new System.Windows.Forms.Button();
             this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameOfService = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,8 +55,21 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 604);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(756, 22);
+            this.panel1.Size = new System.Drawing.Size(836, 22);
             this.panel1.TabIndex = 2;
+            // 
+            // buttonToExcel
+            // 
+            this.buttonToExcel.BackColor = System.Drawing.Color.White;
+            this.buttonToExcel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonToExcel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonToExcel.Location = new System.Drawing.Point(650, 0);
+            this.buttonToExcel.Name = "buttonToExcel";
+            this.buttonToExcel.Size = new System.Drawing.Size(186, 22);
+            this.buttonToExcel.TabIndex = 4;
+            this.buttonToExcel.Text = "Экспорт в Excel";
+            this.buttonToExcel.UseVisualStyleBackColor = false;
+            this.buttonToExcel.Click += new System.EventHandler(this.ButtonToExcel_Click);
             // 
             // buttonOpenPhoneDirectory
             // 
@@ -99,21 +112,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Size = new System.Drawing.Size(756, 604);
+            this.dataGridView1.Size = new System.Drawing.Size(836, 604);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // buttonToExcel
-            // 
-            this.buttonToExcel.BackColor = System.Drawing.Color.White;
-            this.buttonToExcel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonToExcel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonToExcel.Location = new System.Drawing.Point(570, 0);
-            this.buttonToExcel.Name = "buttonToExcel";
-            this.buttonToExcel.Size = new System.Drawing.Size(186, 22);
-            this.buttonToExcel.TabIndex = 4;
-            this.buttonToExcel.Text = "Экспорт в Excel";
-            this.buttonToExcel.UseVisualStyleBackColor = false;
-            this.buttonToExcel.Click += new System.EventHandler(this.ButtonToExcel_Click);
             // 
             // PhoneNumber
             // 
@@ -139,28 +139,28 @@
             // CalledNumber
             // 
             this.CalledNumber.FillWeight = 25.74969F;
-            this.CalledNumber.HeaderText = "Номер вызываемого/ вызывающего абонента";
+            this.CalledNumber.HeaderText = "Номер вызываемого абонента";
             this.CalledNumber.MinimumWidth = 60;
             this.CalledNumber.Name = "CalledNumber";
             // 
             // DateAndTimeToStartAConversation
             // 
             this.DateAndTimeToStartAConversation.FillWeight = 25.74969F;
-            this.DateAndTimeToStartAConversation.HeaderText = "Дата,Время начала";
+            this.DateAndTimeToStartAConversation.HeaderText = "Дата, Время начала";
             this.DateAndTimeToStartAConversation.MinimumWidth = 90;
             this.DateAndTimeToStartAConversation.Name = "DateAndTimeToStartAConversation";
             // 
             // DurationOfMinutes
             // 
             this.DurationOfMinutes.FillWeight = 25.74969F;
-            this.DurationOfMinutes.HeaderText = "Прод.(мин)/ Кол.услуг";
+            this.DurationOfMinutes.HeaderText = "Прод. (мин)";
             this.DurationOfMinutes.MinimumWidth = 10;
             this.DurationOfMinutes.Name = "DurationOfMinutes";
             // 
             // Cost
             // 
             this.Cost.FillWeight = 25.74969F;
-            this.Cost.HeaderText = "Стоимость (руб.)";
+            this.Cost.HeaderText = "Стоимость (руб)";
             this.Cost.MinimumWidth = 55;
             this.Cost.Name = "Cost";
             // 
@@ -168,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 626);
+            this.ClientSize = new System.Drawing.Size(836, 626);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
