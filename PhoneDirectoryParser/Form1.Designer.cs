@@ -25,10 +25,12 @@
         /// содержимое этого метода с помощью редактора кода.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonProgramInfo = new System.Windows.Forms.Button();
             this.buttonToExcel = new System.Windows.Forms.Button();
             this.buttonOpenPhoneDirectory = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -39,7 +41,6 @@
             this.DateAndTimeToStartAConversation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DurationOfMinutes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonProgramInfo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +60,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(836, 22);
             this.panel1.TabIndex = 2;
+            // 
+            // buttonProgramInfo
+            // 
+            this.buttonProgramInfo.BackColor = System.Drawing.Color.White;
+            this.buttonProgramInfo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonProgramInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonProgramInfo.Location = new System.Drawing.Point(0, 0);
+            this.buttonProgramInfo.Name = "buttonProgramInfo";
+            this.buttonProgramInfo.Size = new System.Drawing.Size(90, 22);
+            this.buttonProgramInfo.TabIndex = 5;
+            this.buttonProgramInfo.Text = "О программе";
+            this.buttonProgramInfo.UseVisualStyleBackColor = false;
+            this.buttonProgramInfo.Click += new System.EventHandler(this.ButtonProgramInfo_Click);
             // 
             // buttonToExcel
             // 
@@ -103,17 +117,17 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Size = new System.Drawing.Size(836, 604);
             this.dataGridView1.TabIndex = 3;
             // 
@@ -166,19 +180,6 @@
             this.Cost.MinimumWidth = 55;
             this.Cost.Name = "Cost";
             // 
-            // buttonProgramInfo
-            // 
-            this.buttonProgramInfo.BackColor = System.Drawing.Color.White;
-            this.buttonProgramInfo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonProgramInfo.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonProgramInfo.Location = new System.Drawing.Point(0, 0);
-            this.buttonProgramInfo.Name = "buttonProgramInfo";
-            this.buttonProgramInfo.Size = new System.Drawing.Size(90, 22);
-            this.buttonProgramInfo.TabIndex = 5;
-            this.buttonProgramInfo.Text = "О программе";
-            this.buttonProgramInfo.UseVisualStyleBackColor = false;
-            this.buttonProgramInfo.Click += new System.EventHandler(this.ButtonProgramInfo_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,8 +187,9 @@
             this.ClientSize = new System.Drawing.Size(836, 626);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Журнал телефонных разговоров";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

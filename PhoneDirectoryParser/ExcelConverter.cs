@@ -50,11 +50,15 @@ namespace PhoneDirectoryParser
 
             for (var i = 2; i <= countGrid; i++) {
                 if (xlWorkSheet.Cells[i, 5].Value2 == null) {
+                    //объеденение 2-7 ячеек строки итогов
                     xlWorkSheet.Range[xlWorkSheet.Cells[i, 2], xlWorkSheet.Cells[i, 7]].Merge();
+                    xlWorkSheet.Cells[i, 1].EntireRow.Font.Bold = true;
                 }
                 if (xlWorkSheet.Cells[i, 1].Value2 != null) {
+                    //объеденение первого столбца
                     indexEndPhone = i - 1;
                     xlWorkSheet.Range[xlWorkSheet.Cells[indexFirstPhone, 1], xlWorkSheet.Cells[indexEndPhone, 1]].Merge();
+
                     indexFirstPhone = i;
                 }
             }
