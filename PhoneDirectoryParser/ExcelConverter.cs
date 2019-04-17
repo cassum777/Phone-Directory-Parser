@@ -52,6 +52,7 @@ namespace PhoneDirectoryParser
                 if (xlWorkSheet.Cells[i, 5].Value2 == null) {
                     //объеденение 2-7 ячеек строки итогов
                     xlWorkSheet.Range[xlWorkSheet.Cells[i, 2], xlWorkSheet.Cells[i, 7]].Merge();
+                    //сделать текст строки жирным
                     xlWorkSheet.Cells[i, 1].EntireRow.Font.Bold = true;
                 }
                 if (xlWorkSheet.Cells[i, 1].Value2 != null) {
