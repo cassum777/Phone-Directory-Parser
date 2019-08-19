@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PhoneDirectoryParser
 {
@@ -14,10 +15,10 @@ namespace PhoneDirectoryParser
 
         static readonly Encoding defaulEncoding = Encoding.GetEncoding("Windows-1251");
 
-        public List<Call> GetContent(string filePatch) {
+        public async Task<List<Call>> GetContentAsync(string filePatch) {
             var callList = new List<Call>();
             using (var sr = new StreamReader(filePatch, defaulEncoding)) {
-                sr.ReadLine();
+                await sr.ReadLineAsync();
                 while (!sr.EndOfStream) {
                     callList.Add(new Call(sr.ReadLine().Split('|')));
                 }

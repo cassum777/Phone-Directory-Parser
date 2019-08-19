@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PhoneDirectoryParser
@@ -12,13 +13,13 @@ namespace PhoneDirectoryParser
             InitializeComponent();
         }
 
-        private void ButtonOpenPhoneDirectory_Click(object sender, EventArgs e) {
+        private async void ButtonOpenPhoneDirectory_Click(object sender, EventArgs e) {
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
 
                 var filePath = openFileDialog1.FileName;
                 var textLoader = new TextLoader();
-                var callList = textLoader.GetContent(filePath);
-                DataGridAdd(callList);
+                var callList = textLoader.GetContentAsync(filePath);
+                DataGridAdd(await callList);
             }
 
         }

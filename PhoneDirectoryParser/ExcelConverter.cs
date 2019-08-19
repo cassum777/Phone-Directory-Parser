@@ -46,7 +46,7 @@ namespace PhoneDirectoryParser
         private void JoinCells() {
             var countGrid = Form1.CountObjectDatagrid + 2;
             int indexFirstPhone = 1;
-            int indexEndPhone = 1;
+            int indexEndPhone;
 
             for (var i = 2; i <= countGrid; i++) {
                 if (xlWorkSheet.Cells[i, 5].Value2 == null) {
